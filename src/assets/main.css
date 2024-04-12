@@ -1,17 +1,23 @@
-/* @import './base.css'; */
 
-/*
+@import './base.css';
+
+
 #app {
-  max-width: 1280px;
+  max-width: 100%;
+  max-height: 100%;
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
 }
 
+#app {
+  background: red;
+}
+
 a,
 .green {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  /* color: hsla(160, 100%, 37%, 1); */
   transition: 0.4s;
   padding: 3px;
 }
@@ -26,7 +32,8 @@ a,
   body {
     display: flex;
     place-items: center;
-  }
+  } 
+  /* TODO return to this if centering is an issue */
 
   #app {
     display: grid;
@@ -34,4 +41,3 @@ a,
     padding: 0 2rem;
   }
 }
-*/
