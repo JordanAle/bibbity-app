@@ -1,5 +1,9 @@
-# vue-project
+# bibbity-app
 
+# TODOs
+- give sections colorful and white boarders with shadows WITH FADE IN/OUT transition
+
+# Misc
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
@@ -55,3 +59,4 @@ npm run test:e2e
 ```sh
 npm run lint
 ```
+
