@@ -17,6 +17,7 @@
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
     "pinia": "^2.1.7",
+    "simplebar-vue": "^2.3.3",
     "vue": "^3.4.21",
     "vue-google-signin-button": "^1.0.4",
     "vue-router": "^4.3.0",

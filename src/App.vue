@@ -1,61 +1,85 @@
 <script setup lang='ts'>
 // import HelloWorld from './components/HelloWorld.vue'
 import NavBar from './components/NavBar.vue'
+
 import axios from 'axios'
 import { googleSdkLoaded } from 'vue3-google-login'
-import TheWelcome from './components/TheWelcome.vue';
+// import TheWelcome from './components/TheWelcome.vue';
+import simplebar from 'simplebar-vue'
+import 'simplebar-vue/dist/simplebar.min.css';
 // import { useUserStore } from '/store/userStore'
 // const userStore = useUserStore()
 // const { clientId } = storeToRefs(userStore)
 // const { fetchUserDataFrom } = userStore
 
 // Methods
-let saved = null
-const signInWithGoogle = () => {
-  googleSdkLoaded(google => {
-    google.accounts.oauth2
-      .initCodeClient({
-        client_id: '804315369798-sr8lacf17ekt9mv02bbni0hrqb8mu9iq.apps.googleusercontent.com',
-        scope: 'email profile openid',
-        // redirect_uri: 'https://v8jsdts7-8080.use.devtunnels.ms', // may be trhown out by recieving server depending on its protocol
-        callback: async response => {
-          if (response.code)
-            // fetchUserDataFrom(response.code)
-            console.log(response)
-        },
-      })
-      .requestCode()
-  })
-}
+// let saved = null
+// const signInWithGoogle = () => {
+//   googleSdkLoaded(google => {
+//     google.accounts.oauth2
+//       .initCodeClient({
+//         client_id: '804315369798-sr8lacf17ekt9mv02bbni0hrqb8mu9iq.apps.googleusercontent.com',
+//         scope: 'email profile openid',
+//         // redirect_uri: 'https://v8jsdts7-8080.use.devtunnels.ms', // may be trhown out by recieving server depending on its protocol
+//         callback: async response => {
+//           if (response.code)
+//             // fetchUserDataFrom(response.code)
+//             console.log(response)
+//         },
+//       })
+//       .requestCode()
+//   })
+// }
 
-const getSite = async () => {
-  axios.post(
-    'http://localhost:8080',
-    saved,
-    {
-      // headers: {
-      //   'Content-Type': 'application/json',
-      //   'Access-Control-Allow-Origin': '*'
-      // }
-    },
-  ).catch(error => {
-    console.log(error)
-  })
-}
+// const getSite = async () => {
+//   axios.post(
+//     'http://localhost:8080',
+//     saved,
+//     {
+//       // headers: {
+//       //   'Content-Type': 'application/json',
+//       //   'Access-Control-Allow-Origin': '*'
+//       // }
+//     },
+//   ).catch(error => {
+//     console.log(error)
+//   })
+// }
 
-getSite()
+// getSite()
 </script>
 
 <template>
-  <NavBar/>
-
-  <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-  Welcome to MY SITE
-
+    <NavBar/>
+    <RouterView/>
+  
+  <!-- <simplebar>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+    <h1>SPACE</h1>
+  </simplebar>  -->
   <!-- <div @click="signInWithGoogle">
     Continue with Google
   </div> -->
-
 </template>
 
 
