@@ -2,8 +2,7 @@
 const props = defineProps({
   img_uri: {
     type: String,
-    required: false,
-    // default: "../assets/smiling_sloth.png"
+    default: "../assets/smiling_sloth.png"
   },
   img_alt: {
     type: String,
@@ -17,14 +16,14 @@ const props = defineProps({
     type: String,
     default: "Default Caption Text"
   },
+  left_text: {
+    type: Boolean,
+    default: false
+  },
   expandable: {
     type: Boolean,
     default: false
   },
-  left_text: {
-    type: Boolean,
-    default: false
-  }
 })
 
 // Format Image URI

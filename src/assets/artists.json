@@ -1,12 +1,18 @@
 {"artists":[
-    {"id":0,"name":"zero","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
-    {"id":1,"name":"one","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
-    {"id":2,"name":"two","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
-    {"id":3,"name":"three","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
-    {"id":4,"name":"four","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
-    {"id":5,"name":"five","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
-    {"id":6,"name":"six","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
-    {"id":7,"name":"seven","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
-    {"id":8,"name":"eight","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
-    {"id":9,"name":"nine","about":"about","image_uri":"uri0","photos":["uri1","uri2"]}
+    {"id":0,
+        "name":"artist_zero",
+        "about":"about",
+        "image_uri":"uri0",
+        "photos":["uri1","uri2"], 
+        "books":[0]
+    },
+    {"id":1,"name":"artist_one","about":"about","image_uri":"uri0","photos":["uri1","uri2"], "books":[0,1,2]},
+    {"id":2,"name":"artist_two","about":"about","image_uri":"uri0","photos":["uri1","uri2"], "books":[2]},
+    {"id":3,"name":"artist_three","about":"about","image_uri":"uri0","photos":["uri1","uri2"], "books":[3]},
+    {"id":4,"name":"artist_four","about":"about","image_uri":"uri0","photos":["uri1","uri2"], "books":[4]},
+    {"id":5,"name":"artist_five","about":"about","image_uri":"uri0","photos":["uri1","uri2"], "books":[5]},
+    {"id":6,"name":"artist_six","about":"about","image_uri":"uri0","photos":["uri1","uri2"], "books":[6]},
+    {"id":7,"name":"artist_seven","about":"about","image_uri":"uri0","photos":["uri1","uri2"], "books":[7,8]},
+    {"id":8,"name":"artist_eight","about":"about","image_uri":"uri0","photos":["uri1","uri2"], "books":[8]},
+    {"id":9,"name":"artist_nine","about":"about","image_uri":"uri0","photos":["uri1","uri2"], "books":[9]}
 ]}
