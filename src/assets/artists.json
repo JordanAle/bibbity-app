@@ -1,0 +1,12 @@
+{"artists":[
+    {"id":0,"name":"zero","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
+    {"id":1,"name":"one","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
+    {"id":2,"name":"two","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
+    {"id":3,"name":"three","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
+    {"id":4,"name":"four","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
+    {"id":5,"name":"five","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
+    {"id":6,"name":"six","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
+    {"id":7,"name":"seven","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
+    {"id":8,"name":"eight","about":"about","image_uri":"uri0","photos":["uri1","uri2"]},
+    {"id":9,"name":"nine","about":"about","image_uri":"uri0","photos":["uri1","uri2"]}
+]}

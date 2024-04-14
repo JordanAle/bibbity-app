@@ -15,5 +15,6 @@ your dreams.">
         object-fit: contain;
         max-width: 60%;
         overflow: hidden;
+        box-shadow: 0px 0px 67px -45px #000000;
     }
 </style>

@@ -30,6 +30,17 @@ import { RouterLink, RouterView } from 'vue-router'
         grid-template-columns: 2fr 8fr;
         margin: 0 0 1rem 0;
         border-bottom: 0.5px solid var(--color-border);
+        background-color: white;
+
+        position:sticky; /* fixing the position takes it out of html flow - knows
+                        nothing about where to locate itself except by browser
+                        coordinates */
+        left:0;           /* top left corner should start at leftmost spot */
+        top:0;            /* top left corner should start at topmost spot */
+        width:100vw;      /* take up the full browser width */
+        z-index:200;  /* high z index so other content scrolls underneath */
+        height:100px;     /* define height for content */
+        
     }
     .navbar .nav_logo {
         font-size: 30px;
@@ -61,6 +72,7 @@ import { RouterLink, RouterView } from 'vue-router'
     }
     .logo_style {
         color: rgba(65, 105, 225, 1);
+        text-shadow: 0px 0px 67px -45px #000000;
         /* text-shadow: 2px 2px 4px #000000; */
         /* -webkit-text-stroke-width: 0.1px;
         -webkit-text-stroke-color: black; */

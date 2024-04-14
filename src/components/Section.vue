@@ -21,18 +21,18 @@ defineProps ({
     div {
         display:flex;
         justify-content: center;
+        margin: 1rem 0 1rem 0;
     }
     section {
         display: grid;
         max-width: 80%;
         justify-content: center;
-        font-size: 18px;
         /* grid-template-columns: 1fr; */
     }
-    .section_title{
+    .section_title {
         display: flex;
         justify-content: center;
-        font-size: 3rem;
+        font-size: 8rem;
         color: rgba(65, 105, 225, 1);
         /* outline: 1px solid black; */
         /* outline-width: 1px; */
