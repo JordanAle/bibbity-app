@@ -15,7 +15,6 @@ const strToURL = (str) => {
 </script>
 
 <template>
-  <!-- Main -->
   <div class="card_main">
     <ul>
       <li v-for="uri in props.photos" :key="uri">

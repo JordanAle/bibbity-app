@@ -1,8 +1,8 @@
 <script setup>
 // Props
 const props = defineProps({
-  user: {
-    type: Object
+  photos: {
+    type: Array
   }
 })
 // Data
@@ -10,6 +10,8 @@ const props = defineProps({
 // Watchers
 </script>
 
-<template></template>
+<template>
+  <div class="container"></div>
+</template>
 
 <style scoped></style>

@@ -131,12 +131,23 @@ const artists = {
 
 <template>
   <div class="search_header">
-    <h1>Explore Books</h1>
-    <SearchBar placeholder="Search..." />
+    <h1>Peruse the Bibliotheque</h1>
+    <div class="filter_options">
+      <SearchBar placeholder="Search...">
+        <template #filter_options>
+          <ul>
+            Filter by:
+            <li v-for="filterName in ['Book Size', 'Genre']" :key="filterName">
+              {{ filterName }}
+            </li>
+          </ul>
+        </template>
+      </SearchBar>
+    </div>
   </div>
 
-  <div class="list">
-    <BookList></BookList>
+  <div class="book_list">
+    <BookList />
   </div>
 </template>
 
@@ -147,7 +158,29 @@ const artists = {
   max-width: 100%;
 }
 h1 {
-  font-size: 8rem;
+  font-size: 6rem;
   color: rgba(65, 105, 225, 1);
 }
+/* Fiter styles -start- */
+.filter_options {
+  margin-top: 0.3em;
+}
+.filter_options,
+ul {
+  margin-top: 0.2em;
+  display: flex;
+  flex-direction: row;
+  color: black;
+}
+li {
+  margin: 0 1em 0 1em;
+  padding: 0 1em 0 1em;
+  list-style: none;
+}
+li:hover {
+  background-color: silver;
+  border-radius: 5rem;
+  color: white;
+}
+/* Fiter styles -end- */
 </style>

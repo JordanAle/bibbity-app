@@ -23,10 +23,6 @@ const placeholder = props.placeholder
     />
     <div class="filter_options">
       <slot name="filter_options"></slot>
-      Filter by:
-      <ul>
-        <li v-for="filterName in ['Name', 'Genre', 'Date']" :key="filterName">{{ filterName }}</li>
-      </ul>
     </div>
   </div>
 </template>
@@ -45,27 +41,4 @@ input {
   /* border-top: 0; */
   /* caret-color: transparent !important; */
 }
-.filter_options {
-  margin-top: 0.3em;
-}
-.filter_options,
-ul {
-  display: flex;
-  flex-direction: row;
-  color: black;
-}
-li {
-  margin: 0 1em 0 1em;
-  padding: 0 1em 0 1em;
-  list-style: none;
-}
-li:hover {
-  background-color: silver;
-  border-radius: 5rem;
-  color: white;
-}
-/* li:first-of-type {
-        margin:
-        list-style: none;
-    } */
 </style>

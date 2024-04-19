@@ -134,7 +134,18 @@ const artists = {
 <template>
   <div class="search_header">
     <h1>Browse Artists</h1>
-    <SearchBar placeholder="Search..." />
+    <div class="filter_options">
+      <SearchBar placeholder="Search...">
+        <template #filter_options>
+          <ul>
+            Filter by:
+            <li v-for="filterName in ['Name', 'Genre', 'Date']" :key="filterName">
+              {{ filterName }}
+            </li>
+          </ul>
+        </template>
+      </SearchBar>
+    </div>
   </div>
 
   <div class="list">
@@ -152,4 +163,26 @@ h1 {
   font-size: 8rem;
   color: rgba(65, 105, 225, 1);
 }
+/* Fiter styles -start- */
+.filter_options {
+  margin-top: 0.3em;
+}
+.filter_options,
+ul {
+  margin-top: 0.2em;
+  display: flex;
+  flex-direction: row;
+  color: black;
+}
+li {
+  margin: 0 1em 0 1em;
+  padding: 0 1em 0 1em;
+  list-style: none;
+}
+li:hover {
+  background-color: silver;
+  border-radius: 5rem;
+  color: white;
+}
+/* Fiter styles -end- */
 </style>
