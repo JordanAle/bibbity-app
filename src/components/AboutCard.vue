@@ -10,7 +10,11 @@ const props = defineProps({
   },
   title: {
     type: String,
-    default:"Default Header"
+    default:"Default Title"
+  },
+  subtitle: {
+    type: String,
+    default:""
   },
   text: {
     type: String,
@@ -34,6 +38,7 @@ const uri = new URL(props.img_uri, import.meta.url)
     <div v-if="left_text" class="card_container">
         <div class="text_container">
             <p class="title">{{title}}</p>
+            <p class="subtitle">{{subtitle}}</p>
             <p class="text">{{text}}</p>
             <p v-if="expandable" class="expander">See More...</p>
         </div>
@@ -43,6 +48,7 @@ const uri = new URL(props.img_uri, import.meta.url)
         <img class="about_img" :src="uri" :alt="img_alt"/>
         <div class="text_container">
             <p class="title">{{title}}</p>
+            <p class="title">{{subtitle}}</p>
             <p class="text">{{text}}</p>
             <p v-if="expandable" class="expander">See More...</p>
         </div>
@@ -54,9 +60,11 @@ const uri = new URL(props.img_uri, import.meta.url)
 .card_container {
     display: flex;
     max-width: 100%;
-    margin: 1rem 10% 0 10%;
+    margin: 3rem 5% 0 5%;
     overflow: hidden;
     justify-content: center;
+    vertical-align: middle;
+    align-items: center;
     /* outline: #FFD500 solid 5px; */
     /* display: grid; */
     /* flex-direction: row; */
@@ -66,10 +74,15 @@ const uri = new URL(props.img_uri, import.meta.url)
 }
 .card_container:hover {
     outline: #FFD500 solid 5px;
+    box-shadow: 0px 0px 67px -45px #000000;
+    border-radius: .5em;;
     transition: 0.03s ;
 }
 .about_img {
     max-width: 50%;
+    max-height: 455px;
+    margin: 1em;
+    
 }
 .text_container{
     display: flex;
@@ -79,8 +92,8 @@ const uri = new URL(props.img_uri, import.meta.url)
 
     /* text-justify: center; */
     margin: 1em;
-    max-width: 50%;
-    max-height: 100%;
+    width: 50%;
+    /* height: 100%; */
 }
 .title {
     display: flex;
@@ -88,17 +101,11 @@ const uri = new URL(props.img_uri, import.meta.url)
     font-size: 1.5rem;
     font-weight: bold;
 }
-/* .expander {
-    color: black;
-    display: none;
-    border-radius: .5px;
-    stroke: 4px black;
-
-    margin-top: 1em;
-    padding-left: 5px;
-    padding-right: 5px;
+.subtitle {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
-.expander:hover {
-    display: visible;
-} */
+
 </style>

@@ -1,31 +1,37 @@
 <script setup>
 // Imports
-import AboutCard from '../components/AboutCard.vue';
+import ArtistCard from '../components/ArtistCard.vue'
 
 // Props
-const props = defineProps ({
-    itemObj: {
-        type: Object,
-    }
+const props = defineProps({
+  itemObj: {
+    type: Object
+  }
 })
-
 </script>
 
 <template>
-    <div>
-        <ul>
-            <li v-for="item of props.itemObj.list" :key="item.name">
-                <AboutCard :title="item.name"></AboutCard>
-            </li>
-        </ul>
-    </div>
+  <div>
+    <ul>
+      <li v-for="item of props.itemObj.list" :key="item.id">
+        <ArtistCard
+          :image="item.image"
+          :title="item.name"
+          :text="item.about"
+          :left_text="true"
+          :photos="item.photos"
+        ></ArtistCard>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style scoped>
-    div {
-        margin: 3em 0 3em 0;
-    }
-    ul, li {
-        list-style: none;
-    }
+ul,
+li {
+  list-style: none;
+}
+li {
+  margin-bottom: 3em;
+}
 </style>

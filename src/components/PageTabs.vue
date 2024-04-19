@@ -1,10 +1,6 @@
 <script setup>
 // Props
-const props = defineProps({
-  user: {
-    type: Object
-  }
-})
+
 // Data
 // Methods
 // Watchers

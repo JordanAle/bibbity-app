@@ -1,14 +1,8 @@
-<!-- TODO: 
-    Make images stay expanded on click,
-    Fix container resize bug when there is only one image in a row and the image is expanded
-    Implement Search Bar abilities (filters, and search)
-    Shrink the search on sticky scroll, fix issues arising from that
--->
-
 <script setup>
 import SearchBar from '../components/SearchBar.vue'
-import ArtistList from '../components/ArtistList.vue'
+import BookList from '../components/BookList.vue'
 
+// Data
 const artists = {
   list: [
     {
@@ -129,16 +123,20 @@ const artists = {
     }
   ]
 }
+
+// Methods - runs on each component update
+// Watchers - watch a data attribute for a change and issue an action if it changes
+// Computed - temporary snapshot of a state, avoid mutating it
 </script>
 
 <template>
   <div class="search_header">
-    <h1>Browse Artists</h1>
+    <h1>Explore Books</h1>
     <SearchBar placeholder="Search..." />
   </div>
 
   <div class="list">
-    <ArtistList v-bind:itemObj="artists"></ArtistList>
+    <BookList></BookList>
   </div>
 </template>
 
