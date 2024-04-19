@@ -1,6 +1,7 @@
 <script setup>
 import ProfileEdit from '../components/ProfileEdit.vue'
-import PhotoGallery from '@/components/PhotoGallery.vue'
+import PhotoGallery from '../components/PhotoGallery.vue'
+import Login from '../components/Login.vue'
 
 // Props
 const props = defineProps({
@@ -60,17 +61,15 @@ const book_obj_list = {
   ]
 }
 // Methods
-function getPhotos() {
-  return book_obj_list.books.map((book) => {
-    return '../assets/Book Covers/' + book.title
-  })
+function getUserBooks(id = 0) {
+  return 1
 }
 </script>
 
 <template>
   <div>
+    <Login />
     <!-- TODO pass props to these child components from retrieved database results -->
     <ProfileEdit></ProfileEdit>
-    <PhotoGallery :photos="getPhotos()"></PhotoGallery>
   </div>
 </template>

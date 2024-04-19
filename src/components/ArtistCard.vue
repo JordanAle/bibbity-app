@@ -95,7 +95,7 @@ const strToURL = (str) => {
     border-radius: .5em;
 }
 .card_container:hover {
-    outline: #FFD500 solid 5px;
+    outline: #ffd500a3 solid 3px;
     border-radius: .5em;
     box-shadow: 
     

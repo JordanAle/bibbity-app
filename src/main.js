@@ -17,9 +17,9 @@ const vuetify = createVuetify()
 
 app.use(vuetify)
 
-// app.use(vue3GoogleLogin, {
-//   clientId: '804315369798-sr8lacf17ekt9mv02bbni0hrqb8mu9iq.apps.googleusercontent.com'
-// })
+app.use(vue3GoogleLogin, {
+  clientId: '804315369798-sr8lacf17ekt9mv02bbni0hrqb8mu9iq.apps.googleusercontent.com'
+})
 
 app.use(createPinia())
 app.use(router)

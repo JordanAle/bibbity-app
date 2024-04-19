@@ -1,137 +1,73 @@
 <script setup>
 import SearchBar from '../components/SearchBar.vue'
 import BookList from '../components/BookList.vue'
+import PhotoGallery from '../components/PhotoGallery.vue'
 
+// Props
+const props = defineProps({
+  user: {
+    type: Object
+  }
+})
 // Data
-const artists = {
-  list: [
+const book_obj_list = {
+  books: [
     {
       id: 0,
-      name: 'artist_zero',
-      about:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla egestas augue at imperdiet. Nunc facilisis sagittis est, ut porttitor risus pulvinar ultricies. Vivamus cursus odio odio, non dapibus mauris facilisis vitae. Morbi finibus ex lectus, ut vestibulum mi tempor nec. Duis id orci ac lectus venenatis dignissim id ut nisl. Sed dui nulla, sollicitudin ut tempus at, vestibulum eu orci. Praesent id lacus ac nunc vulputate mattis at vitae nibh. Maecenas sed urna tincidunt, venenatis felis sed, finibus massa. ',
-      image: { id: 0, uri: '../assets/smiling_sloth.png' },
-      photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' },
-        { id: 2, uri: '../assets/smiling_sloth.png' },
-        { id: 3, uri: '../assets/smiling_sloth.png' },
-        { id: 4, uri: '../assets/smiling_sloth.png' },
-        { id: 5, uri: '../assets/smiling_sloth.png' },
-        { id: 6, uri: '../assets/smiling_sloth.png' },
-        { id: 7, uri: '../assets/smiling_sloth.png' },
-        { id: 8, uri: '../assets/smiling_sloth.png' },
-        { id: 9, uri: '../assets/smiling_sloth.png' }
-      ],
-      books: [0]
+      title: 'A Little Direction by Mallory N_Jibwe.png',
+      author: 'Mallory N Jibwe',
+      author_id: 0
     },
-    {
-      id: 1,
-      name: 'artist_one',
-      about: 'about',
-      image: { id: 0, uri: '../assets/smiling_sloth.png' },
-      photos: [{ id: 0, uri: '../assets/smiling_sloth.png' }],
-      books: [0, 1, 2]
-    },
+    { id: 1, title: 'Cutting Glass By Sam Meyers.png', author: 'Sam Meyers', author_id: 1 },
     {
       id: 2,
-      name: 'artist_two',
-      about: 'about',
-      image: { id: 0, uri: '../assets/smiling_sloth.png' },
-      photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' }
-      ],
-      books: [2]
+      title: 'Dying Alone, Together by Shep Albertson.png',
+      author: 'Shep Albertson',
+      author_id: 2
     },
     {
       id: 3,
-      name: 'artist_three',
-      about: 'about',
-      image: { id: 0, uri: '../assets/smiling_sloth.png' },
-      photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' }
-      ],
-      books: [3]
+      title: 'One Day and Two Nights by Eugenia Nedlman.png',
+      author: 'Eugenia Nedlman',
+      author_id: 3
     },
-    {
-      id: 4,
-      name: 'artist_four',
-      about: 'about',
-      image: { id: 0, uri: '../assets/smiling_sloth.png' },
-      photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' }
-      ],
-      books: [4]
-    },
+    { id: 4, title: 'Patina. By Nancy Schmidt.png', author: 'Nancy Schmidt', author_id: 4 },
     {
       id: 5,
-      name: 'artist_five',
-      about: 'about',
-      image: { id: 0, uri: '../assets/smiling_sloth.png' },
-      photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' }
-      ],
-      books: [5]
+      title: 'Pushing 90 With the Windows Down, by Diangelo Jailors.png',
+      author: 'Diangelo Jailors',
+      author_id: 5
     },
     {
       id: 6,
-      name: 'artist_six',
-      about: 'about',
-      image: { id: 0, uri: '../assets/smiling_sloth.png' },
-      photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' }
-      ],
-      books: [6]
+      title: 'Refusal of the Call by Lynn Trestle.png',
+      author: 'Lynn Trestle',
+      author_id: 6
     },
     {
       id: 7,
-      name: 'artist_seven',
-      about: 'about',
-      image: { id: 0, uri: '../assets/smiling_sloth.png' },
-      photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' }
-      ],
-      books: [7, 8]
+      title: 'The Infinite Pleasures of Contemplation by Samantha Ruppert.png',
+      author: 'Samantha Ruppert',
+      author_id: 7
     },
     {
       id: 8,
-      name: 'artist_eight',
-      about: 'about',
-      image: { id: 0, uri: '../assets/smiling_sloth.png' },
-      photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' }
-      ],
-      books: [8]
+      title: 'The Wild Geese by Adronius Finch.png',
+      author: 'Adronius Finch',
+      author_id: 8
     },
-    {
-      id: 9,
-      name: 'artist_nine',
-      about: 'about',
-      image: { id: 0, uri: '../assets/smiling_sloth.png' },
-      photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' }
-      ],
-      books: [9]
-    }
+    { id: 9, title: 'Why not Now by Eddard Landry.png', author: 'Eddard Landry', author_id: 9 }
   ]
 }
+// Methods
 
-// Methods - runs on each component update
 // Watchers - watch a data attribute for a change and issue an action if it changes
 // Computed - temporary snapshot of a state, avoid mutating it
 </script>
 
 <template>
   <div class="search_header">
-    <h1>Peruse the Bibliotheque</h1>
+    <h1>Book Library</h1>
     <div class="filter_options">
       <SearchBar placeholder="Search...">
         <template #filter_options>
@@ -146,19 +82,29 @@ const artists = {
     </div>
   </div>
 
-  <div class="book_list">
-    <BookList />
+  <div class="books">
+    <!-- TODO pass props to these child components from retrieved database results -->
+    <PhotoGallery :book_list="book_obj_list.books"></PhotoGallery>
   </div>
+
+  <!-- <div class="book_list">
+    <BookList />
+  </div> -->
 </template>
 
 <style scoped>
+/* .container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0 1rem 0;
+} */
 .search_header {
   display: grid;
   justify-content: center;
   max-width: 100%;
 }
 h1 {
-  font-size: 6rem;
+  font-size: 8rem;
   color: rgba(65, 105, 225, 1);
 }
 /* Fiter styles -start- */
@@ -181,6 +127,9 @@ li:hover {
   background-color: silver;
   border-radius: 5rem;
   color: white;
+}
+.books {
+  margin-left: 8em;
 }
 /* Fiter styles -end- */
 </style>

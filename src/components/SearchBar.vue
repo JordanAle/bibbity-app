@@ -29,7 +29,7 @@ const placeholder = props.placeholder
 
 <style scoped>
 div {
-  margin-bottom: 3em;
+  margin-bottom: 1.5em;
 }
 
 input {
