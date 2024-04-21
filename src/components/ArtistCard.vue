@@ -145,28 +145,25 @@ ul {
     padding: 0;
     list-style: none;
 }
-/* li:after{
-    content:""
-} */
 .card_main_photo {
     margin: .2em;
     max-width: 150px;
     max-height: 150px;
-
+    margin-right: 100em;
     /* z-index: 1; */
     /* transition: ease-out .2s; */
 }
-.card_main_photo img:hover:after {
+/* .card_main_photo img:hover:after {
     content: "";
     width: 100%;
     height: 100%;
     top: 0px; left:0px;
 
-    /* position: fixed; */
+    position: fixed;
     z-index: 10;
     box-shadow: 0px 0px 67px -45px #000000;
     transition: ease-out .2s;
-}
+} */
 .card_main_photo:hover {
     max-width: 300px;
     max-height: 300px;

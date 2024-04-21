@@ -1,5 +1,18 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink } from 'vue-router'
+import { useLoginStore } from '../stores/loginStore'
+
+// Props
+const props = defineProps({
+  user: {
+    type: Object
+  }
+})
+
+// Store
+const loginStore = useLoginStore()
+
+// Method
 </script>
 
 <template>
@@ -17,7 +30,8 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/printing-press">Printing Press</RouterLink>
         <RouterLink to="/browse-artists">Browse Artists</RouterLink>
         <RouterLink to="/my-bibbity">My Bibbity</RouterLink>
-        <RouterLink to="/account">Account</RouterLink>
+        <RouterLink v-if="loginStore.getUser == null" to="/my-bibbity">Log In</RouterLink>
+        <RouterLink v-else to="/" @click="loginStore.logout">Log Out</RouterLink>
       </nav>
     </div>
   </div>
@@ -68,6 +82,11 @@ nav a {
 }
 nav a:first-of-type {
   border: 0;
+}
+.loginOut_div {
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 .logo_style {
   color: rgba(65, 105, 225, 1);

@@ -2,6 +2,7 @@
 import ProfileEdit from '../components/ProfileEdit.vue'
 import PhotoGallery from '../components/PhotoGallery.vue'
 import Login from '../components/Login.vue'
+import { useLoginStore } from '../stores/loginStore.js'
 
 // Props
 const props = defineProps({
@@ -9,6 +10,8 @@ const props = defineProps({
     type: Object
   }
 })
+// Store
+const loginStore = useLoginStore()
 
 // Data
 const book_obj_list = {
@@ -67,9 +70,30 @@ function getUserBooks(id = 0) {
 </script>
 
 <template>
-  <div>
-    <Login />
+  <div class="container">
+    <div v-if="loginStore.getUser == null" class="loggedout">
+      <Login />
+    </div>
     <!-- TODO pass props to these child components from retrieved database results -->
-    <ProfileEdit></ProfileEdit>
+    <div v-else class="loggedin">
+      <div>
+        <Login />
+      </div>
+      <div>
+        <ProfileEdit />
+      </div>
+      <div class="photo_gallery">
+        <PhotoGallery />
+      </div>
+    </div>
   </div>
 </template>
+
+<style scoped>
+.container {
+}
+.loggedout {
+}
+.loggedin {
+}
+</style>

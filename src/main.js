@@ -1,27 +1,19 @@
+// Style
 import './assets/main.css'
-// import 'vuetify/dist/vuetify.min.css'
-
-import vue3GoogleLogin from 'vue3-google-login'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-
-import { createVuetify } from 'vuetify'
-
+import vue3GoogleLogin from 'vue3-google-login'
 import App from './App.vue'
 import router from './router'
+import { Tabs, Tab } from 'vue3-tabs-component'
 
 const app = createApp(App)
-
-const vuetify = createVuetify()
-
-app.use(vuetify)
-
+app.use(router)
+app.component('TabsComponent', Tabs)
+app.component('TabComponent', Tab)
+app.use(createPinia())
 app.use(vue3GoogleLogin, {
   clientId: '804315369798-sr8lacf17ekt9mv02bbni0hrqb8mu9iq.apps.googleusercontent.com'
 })
-
-app.use(createPinia())
-app.use(router)
-
 app.mount('#app')
