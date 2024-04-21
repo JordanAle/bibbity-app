@@ -10,6 +10,9 @@ const loginStore = useLoginStore()
 // Data
 
 // Methods
+const google = () => {
+  loginStore.signInWithGoogle()
+}
 </script>
 
 <template>
@@ -31,7 +34,7 @@ const loginStore = useLoginStore()
         <input type="button" value="Forgot Password" />
       </div>
       <div class="google_login_container">
-        <div class="google_login" @click="loginStore.signInWithGoogle">Login with Google</div>
+        <div class="google_login" @click="google">Login with Google</div>
       </div>
     </div>
   </div>
@@ -50,7 +53,7 @@ const loginStore = useLoginStore()
 .text_input {
   width: 100%;
   border-radius: 0.4em;
-  border: 1px solid #868581;
+  border: 2px solid #ffd500;
   padding: 0.5em;
   margin-bottom: 0.3em;
 }
@@ -71,6 +74,8 @@ const loginStore = useLoginStore()
   background-color: rgba(65, 105, 225, 1);
   border: 0;
   color: white;
+  font-size: 1em;
+  font-weight: bold;
 }
 .button_container input:hover {
   box-shadow: 0px 0px 15px -8px #000000;
@@ -89,6 +94,8 @@ const loginStore = useLoginStore()
   background-color: rgba(65, 105, 225, 1);
   border-radius: 0.5em;
   color: white;
+  font-size: 1em;
+  font-weight: bold;
 }
 .google_login:hover {
   box-shadow: 0px 0px 15px -8px #000000;

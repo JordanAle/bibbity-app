@@ -1,6 +1,7 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import { googleSdkLoaded } from 'vue3-google-login'
+import router from '@/router'
 
 export const useLoginStore = defineStore('login', () => {
   const user = ref(null)
@@ -11,6 +12,7 @@ export const useLoginStore = defineStore('login', () => {
   const logout = () => {
     // TODO Handle any 3rd party sign out too
     user.value = null
+    router.push('/')
   }
   // Google
   const signInWithGoogle = () => {

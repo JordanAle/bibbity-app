@@ -3,6 +3,7 @@ import ProfileEdit from '../components/ProfileEdit.vue'
 import PhotoGallery from '../components/PhotoGallery.vue'
 import Login from '../components/Login.vue'
 import { useLoginStore } from '../stores/loginStore.js'
+import { Tabs, Tab } from 'vue3-tabs-component'
 
 // Props
 const props = defineProps({
@@ -63,25 +64,116 @@ const book_obj_list = {
     { id: 9, title: 'Why not Now by Eddard Landry.png', author: 'Eddard Landry', author_id: 9 }
   ]
 }
+let active_tab = 0
 // Methods
 function getUserBooks(id = 0) {
   return 1
+}
+const is_logged_in = () => {
+  loginStore.getUser
+}
+
+function select_tab(num) {
+  switch (num) {
+    case 1:
+      if (active_tab == 1) {
+        active_tab = 0
+        document.getElementById('tab1').style.display = 'none'
+        document.getElementById('tab_head1').style.color = 'inherit'
+      } else {
+        active_tab = 1
+        document.getElementById('tab1').style.display = 'inline'
+        document.getElementById('tab_head1').style.color = 'white'
+        document.getElementById('tab2').style.display = 'none'
+        document.getElementById('tab_head2').style.color = 'inherit'
+        document.getElementById('tab3').style.display = 'none'
+        document.getElementById('tab_head3').style.color = 'inherit'
+        document.getElementById('tab4').style.display = 'none'
+        document.getElementById('tab_head4').style.color = 'inherit'
+      }
+      break
+
+    case 2:
+      if (active_tab == 2) {
+        active_tab = 0
+        document.getElementById('tab2').style.display = 'none'
+        document.getElementById('tab_head2').style.color = 'inherit'
+      } else {
+        active_tab = 2
+        document.getElementById('tab2').style.display = 'inline'
+        document.getElementById('tab_head2').style.color = 'white'
+        document.getElementById('tab1').style.display = 'none'
+        document.getElementById('tab_head1').style.color = 'inherit'
+        document.getElementById('tab3').style.display = 'none'
+        document.getElementById('tab_head3').style.color = 'inherit'
+        document.getElementById('tab4').style.display = 'none'
+        document.getElementById('tab_head4').style.color = 'inherit'
+      }
+      return 1
+    case 3:
+      if (active_tab == 3) {
+        active_tab = 0
+        document.getElementById('tab3').style.display = 'none'
+        document.getElementById('tab_head3').style.color = 'inherit'
+      } else {
+        active_tab = 3
+        document.getElementById('tab3').style.display = 'inline'
+        document.getElementById('tab_head3').style.color = 'white'
+        document.getElementById('tab1').style.display = 'none'
+        document.getElementById('tab_head1').style.color = 'inherit'
+        document.getElementById('tab2').style.display = 'none'
+        document.getElementById('tab_head2').style.color = 'inherit'
+        document.getElementById('tab4').style.display = 'none'
+        document.getElementById('tab_head4').style.color = 'inherit'
+      }
+      return 1
+    case 4:
+      if (active_tab == 4) {
+        active_tab = 0
+        document.getElementById('tab4').style.display = 'none'
+        document.getElementById('tab_head4').style.color = 'inherit'
+      } else {
+        active_tab = 4
+        document.getElementById('tab4').style.display = 'inline'
+        document.getElementById('tab_head4').style.color = 'white'
+        document.getElementById('tab1').style.display = 'none'
+        document.getElementById('tab_head1').style.color = 'inherit'
+        document.getElementById('tab2').style.display = 'none'
+        document.getElementById('tab_head2').style.color = 'inherit'
+        document.getElementById('tab3').style.display = 'none'
+        document.getElementById('tab_head3').style.color = 'inherit'
+      }
+      return 1
+  }
 }
 </script>
 
 <template>
   <div class="container">
-    <div v-if="loginStore.getUser == null" class="loggedout">
+    <div v-if="is_logged_in == null" class="loggedout">
       <Login />
     </div>
     <!-- TODO pass props to these child components from retrieved database results -->
     <div v-else class="loggedin">
-      <div>
-        <Login />
-      </div>
-      <div>
-        <ProfileEdit />
-      </div>
+      <ul class="tab_container">
+        <div class="tab_header_group">
+          <li id="tab_head1" class="tab_header" @click="select_tab(1)">New Books</li>
+          <li id="tab_head2" class="tab_header" @click="select_tab(2)">Books In Progress</li>
+          <li id="tab_head3" class="tab_header" @click="select_tab(3)">Published Books</li>
+          <li id="tab_head4" class="tab_header" @click="select_tab(4)">Edit Profile</li>
+        </div>
+        <div class="tab_content_group"></div>
+        <div id="tab1" class="tab_content">New Books</div>
+        <div id="tab2" class="tab_content">Books In Progress</div>
+        <div id="tab3" class="tab_content">Published Books</div>
+        <div id="tab4" class="tab_content">
+          Edit Profile
+          <div>
+            <ProfileEdit />
+          </div>
+        </div>
+      </ul>
+
       <div class="photo_gallery">
         <PhotoGallery />
       </div>
@@ -92,8 +184,36 @@ function getUserBooks(id = 0) {
 <style scoped>
 .container {
 }
-.loggedout {
+.tab_container {
+  list-style: none;
 }
-.loggedin {
+.tab_header_group {
+  display: flex;
+  justify-content: center;
+}
+.tab_header {
+  display: flex;
+  flex-direction: column;
+
+  vertical-align: middle;
+
+  background-color: #ffd04f;
+
+  margin: 1em;
+  padding: 0 0.8em 0 0.8em;
+  border-radius: 1em;
+  font-weight: bold;
+  font-size: 1em;
+
+  box-shadow: 0px 0px 60px 0.02px #000000;
+  box-shadow: 0px 0px 15px -10px #000000;
+}
+.tab_header:hover {
+  color: white;
+}
+#tab1,
+#tab2,
+#tab3 {
+  display: none;
 }
 </style>

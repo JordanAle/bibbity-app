@@ -50,46 +50,54 @@ function submit() {
     <div class="profile_picture_container">
       <img class="profile_picture" src="../assets/smiling_sloth.png" alt="Profile Picture" />
     </div>
-    <!-- Text Info -->
-    <div class="text_info">
-      <input v-if="is_edit_mode" type="text" :value="props.name" />
-      <h2 v-else class="name">{{ props.name }}</h2>
-      <p class="username">{{ props.username }}</p>
+    <div class="form_panel">
+      <!-- Text Info -->
+      <div class="text_info">
+        <input v-if="is_edit_mode" type="text" :value="props.name" />
+        <h2 v-else class="name">{{ props.name }}</h2>
+        <p class="username">{{ props.username }}</p>
 
-      <textarea v-if="is_edit_mode" id="textarea" :value="props.bio"></textarea>
-      <p v-else class="bio">{{ props.bio }}</p>
-    </div>
+        <textarea
+          v-if="is_edit_mode"
+          id="textarea"
+          :value="props.bio"
+          cols="50"
+          rows="10"
+        ></textarea>
+        <p v-else class="bio">{{ props.bio }}</p>
+      </div>
 
-    <!-- Checkboxes -->
-    <div class="checkbox_outter_container">
-      <span>I am an...</span>
-      <label class="checkbox_inner_container">
-        <span class="title">Artist</span>
-        <input
-          type="checkbox"
-          id="artist"
-          v-model="is_artist"
-          checked=""
-          :disabled="!is_edit_mode"
-        />
-      </label>
-      <label class="checkbox_inner_container">
-        <span class="title">Author</span>
-        <input
-          type="checkbox"
-          id="author"
-          v-model="is_author"
-          checked=""
-          :disabled="!is_edit_mode"
-        />
-      </label>
-    </div>
-    <!-- Submit/Edit Button -->
-    <div class="buttons">
-      <button v-if="is_edit_mode" @click="revert_edits()">Cancel</button>
+      <!-- Checkboxes -->
+      <div class="checkbox_outter_container">
+        <span>I am an...</span>
+        <label class="checkbox_inner_container">
+          <span class="title">Artist</span>
+          <input
+            type="checkbox"
+            id="artist"
+            v-model="is_artist"
+            checked=""
+            :disabled="!is_edit_mode"
+          />
+        </label>
+        <label class="checkbox_inner_container">
+          <span class="title">Author</span>
+          <input
+            type="checkbox"
+            id="author"
+            v-model="is_author"
+            checked=""
+            :disabled="!is_edit_mode"
+          />
+        </label>
+      </div>
+      <!-- Submit/Edit Button -->
+      <div class="buttons">
+        <button v-if="is_edit_mode" @click="revert_edits()">Cancel</button>
 
-      <button v-if="is_edit_mode" @click="submit">Submit</button>
-      <button v-else @click="is_edit_mode = true">Edit Profile</button>
+        <button v-if="is_edit_mode" @click="submit">Submit</button>
+        <button v-else @click="is_edit_mode = true">Edit Profile</button>
+      </div>
     </div>
   </div>
   <div class="photo_container">
@@ -98,10 +106,24 @@ function submit() {
 </template>
 
 <style scoped>
-.container {
-  margin-left: 1em;
+.detail_container {
+  margin: 1em;
+  display: flex;
 }
 .text_info {
+}
+input {
+  border-radius: 0.4em;
+  width: 100%;
+  border: 2px solid #ffd500;
+  padding: 0.5em;
+}
+textarea {
+  border-radius: 0.4em;
+  max-width: 100%;
+  border: 2px solid #ffd500;
+  padding: 0.5em;
+  font-size: 1em;
 }
 .checkbox_outter_container {
   display: flex;
@@ -118,12 +140,28 @@ function submit() {
   width: 5em;
 }
 .profile_picture_container {
+  margin-right: 2em;
 }
 .profile_picture {
-  width: 300px;
-  height: 300px;
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 1em;
 }
 button {
   margin: 0.5em;
+  /* erase defaults */
+  padding: 0.7em;
+  /* margin: 0; */
+  background-color: transparent;
+  border-radius: 0.4em;
+  background-color: rgba(65, 105, 225, 1);
+  border: 0;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+}
+button:hover {
+  box-shadow: 0px 0px 15px -8px #000000;
+  background-color: rgb(35, 77, 200);
 }
 </style>

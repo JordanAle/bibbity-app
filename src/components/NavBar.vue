@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import { useLoginStore } from '../stores/loginStore'
+import { computed } from 'vue'
 
 // Props
 const props = defineProps({
@@ -13,6 +14,12 @@ const props = defineProps({
 const loginStore = useLoginStore()
 
 // Method
+const logout = () => {
+  loginStore.logout()
+}
+
+//Computed
+const is_logged_in = computed(() => loginStore.getUser)
 </script>
 
 <template>
@@ -30,8 +37,8 @@ const loginStore = useLoginStore()
         <RouterLink to="/printing-press">Printing Press</RouterLink>
         <RouterLink to="/browse-artists">Browse Artists</RouterLink>
         <RouterLink to="/my-bibbity">My Bibbity</RouterLink>
-        <RouterLink v-if="loginStore.getUser == null" to="/my-bibbity">Log In</RouterLink>
-        <RouterLink v-else to="/" @click="loginStore.logout">Log Out</RouterLink>
+        <RouterLink v-if="is_logged_in == null" to="/my-bibbity">Log In</RouterLink>
+        <a v-else to="/" @click="logout">Log Out</a>
       </nav>
     </div>
   </div>
