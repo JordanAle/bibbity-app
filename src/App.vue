@@ -1,5 +1,13 @@
 <script setup lang="ts">
 import NavBar from './components/NavBar.vue'
+import { useLoginStore } from './stores/loginStore'
+import { computed } from 'vue'
+
+// Store
+const loginStore = useLoginStore()
+
+// Data
+const user = loginStore.getUser
 </script>
 
 <template>

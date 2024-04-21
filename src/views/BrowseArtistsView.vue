@@ -25,9 +25,9 @@ const artists = {
         { id: 4, uri: '../assets/smiling_sloth.png' },
         { id: 5, uri: '../assets/smiling_sloth.png' },
         { id: 6, uri: '../assets/smiling_sloth.png' },
-        { id: 7, uri: '../assets/smiling_sloth.png' },
-        { id: 8, uri: '../assets/smiling_sloth.png' },
-        { id: 9, uri: '../assets/smiling_sloth.png' }
+        { id: 7, uri: '../assets/smiling_sloth.png' }
+        // { id: 8, uri: '../assets/smiling_sloth.png' },
+        // { id: 9, uri: '../assets/smiling_sloth.png' }
       ],
       books: [0]
     },
