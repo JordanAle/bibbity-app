@@ -51,7 +51,10 @@ const title_selected = computed(() => {
             </div>
           </div>
           <div v-if="['Small', 'Medium', 'Large'].includes(book_size)" class="enter_name">
-            <p>Next, name your book. Don't worry-you can rename it later.</p>
+            <p>
+              Next, name your {{ book_size.toLowerCase() }} book. Don't worry-you can rename it
+              later.
+            </p>
             <input id="book_title" type="text" />
             <p>
               Finally, head to <RouterLink to="my-bibbity">"My Bibbity"</RouterLink> to start your

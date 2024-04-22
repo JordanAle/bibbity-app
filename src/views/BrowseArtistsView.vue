@@ -15,7 +15,7 @@ const artists = {
       id: 0,
       name: 'artist_zero',
       about:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla egestas augue at imperdiet. Nunc facilisis sagittis est, ut porttitor risus pulvinar ultricies. Vivamus cursus odio odio, non dapibus mauris facilisis vitae. Morbi finibus ex lectus, ut vestibulum mi tempor nec. Duis id orci ac lectus venenatis dignissim id ut nisl. Sed dui nulla, sollicitudin ut tempus at, vestibulum eu orci. Praesent id lacus ac nunc vulputate mattis at vitae nibh. Maecenas sed urna tincidunt, venenatis felis sed, finibus massa. ',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla egestas augue at imperdiet. Nunc facilisis sagittis est, ut porttitor risus pulvinar ultricies. Vivamus cursus odio odio, non dapibus mauris facilisis vitae. Morbi finibus ex lectus, ut vestibulum mi tempor nec.',
       image: { id: 0, uri: '../assets/smiling_sloth.png' },
       photos: [
         { id: 0, uri: '../assets/smiling_sloth.png' },

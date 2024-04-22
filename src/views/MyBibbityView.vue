@@ -3,7 +3,7 @@ import ProfileEdit from '../components/ProfileEdit.vue'
 import PhotoGallery from '../components/PhotoGallery.vue'
 import Login from '../components/Login.vue'
 import { useLoginStore } from '../stores/loginStore.js'
-import { Tabs, Tab } from 'vue3-tabs-component'
+import { computed, defineProps } from 'vue'
 
 // Props
 const props = defineProps({
@@ -15,63 +15,63 @@ const props = defineProps({
 const loginStore = useLoginStore()
 
 // Data
-const book_obj_list = {
-  books: [
-    {
-      id: 0,
-      title: 'A Little Direction by Mallory N_Jibwe.png',
-      author: 'Mallory N_Jibwe',
-      author_id: 0
-    },
-    { id: 1, title: 'Cutting Glass By Sam Meyers.png', author: 'Sam Meyers', author_id: 1 },
-    {
-      id: 2,
-      title: 'Dying Alone, Together by Shep Albertson.png',
-      author: 'Shep Albertson',
-      author_id: 2
-    },
-    {
-      id: 3,
-      title: 'One Day and Two Nights by Eugenia Nedlman.png',
-      author: 'Eugenia Nedlman',
-      author_id: 3
-    },
-    { id: 4, title: 'Patina. By Nancy Schmidt.png', author: 'Nancy Schmidt', author_id: 4 },
-    {
-      id: 5,
-      title: 'Pushing 90 With the Windows Down, by Diangelo Jailors.png',
-      author: 'Diangelo Jailors',
-      author_id: 5
-    },
-    {
-      id: 6,
-      title: 'Refusal of the Call by Lynn Trestle.png',
-      author: 'Lynn Trestle',
-      author_id: 6
-    },
-    {
-      id: 7,
-      title: 'The Infinite Pleasures of Contemplation by Samantha Ruppert.png',
-      author: 'Samantha Ruppert',
-      author_id: 7
-    },
-    {
-      id: 8,
-      title: 'The Wild Geese by Adronius Finch.png',
-      author: 'Adronius Finch',
-      author_id: 8
-    },
-    { id: 9, title: 'Why not Now by Eddard Landry.png', author: 'Eddard Landry', author_id: 9 }
-  ]
-}
+// const book_obj_list = {
+//   books: [
+//     {
+//       id: 0,
+//       title: 'A Little Direction by Mallory N_Jibwe.png',
+//       author: 'Mallory N_Jibwe',
+//       author_id: 0
+//     },
+//     { id: 1, title: 'Cutting Glass By Sam Meyers.png', author: 'Sam Meyers', author_id: 1 },
+//     {
+//       id: 2,
+//       title: 'Dying Alone, Together by Shep Albertson.png',
+//       author: 'Shep Albertson',
+//       author_id: 2
+//     },
+//     {
+//       id: 3,
+//       title: 'One Day and Two Nights by Eugenia Nedlman.png',
+//       author: 'Eugenia Nedlman',
+//       author_id: 3
+//     },
+//     { id: 4, title: 'Patina. By Nancy Schmidt.png', author: 'Nancy Schmidt', author_id: 4 },
+//     {
+//       id: 5,
+//       title: 'Pushing 90 With the Windows Down, by Diangelo Jailors.png',
+//       author: 'Diangelo Jailors',
+//       author_id: 5
+//     },
+//     {
+//       id: 6,
+//       title: 'Refusal of the Call by Lynn Trestle.png',
+//       author: 'Lynn Trestle',
+//       author_id: 6
+//     },
+//     {
+//       id: 7,
+//       title: 'The Infinite Pleasures of Contemplation by Samantha Ruppert.png',
+//       author: 'Samantha Ruppert',
+//       author_id: 7
+//     },
+//     {
+//       id: 8,
+//       title: 'The Wild Geese by Adronius Finch.png',
+//       author: 'Adronius Finch',
+//       author_id: 8
+//     },
+//     { id: 9, title: 'Why not Now by Eddard Landry.png', author: 'Eddard Landry', author_id: 9 }
+//   ]
+// }
 let active_tab = 0
 // Methods
-function getUserBooks(id = 0) {
-  return 1
-}
-const is_logged_in = () => {
-  loginStore.getUser
-}
+// function getUserBooks(id = 0) {
+//   return 1
+// }
+const is_logged_in = computed(() => {
+  return loginStore.getUser
+})
 
 function select_tab(num) {
   switch (num) {
@@ -167,7 +167,6 @@ function select_tab(num) {
         <div id="tab2" class="tab_content">Books In Progress</div>
         <div id="tab3" class="tab_content">Published Books</div>
         <div id="tab4" class="tab_content">
-          Edit Profile
           <div>
             <ProfileEdit />
           </div>
@@ -199,9 +198,9 @@ function select_tab(num) {
 
   background-color: #ffd04f;
 
-  margin: 1em;
+  margin: 0 0.5em;
   padding: 0 0.8em 0 0.8em;
-  border-radius: 1em;
+  border-radius: 0.5em;
   font-weight: bold;
   font-size: 1em;
 
