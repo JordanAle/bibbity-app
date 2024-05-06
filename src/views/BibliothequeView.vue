@@ -1,6 +1,5 @@
 <script setup>
 import SearchBar from '../components/SearchBar.vue'
-import BookList from '../components/BookList.vue'
 import PhotoGallery from '../components/PhotoGallery.vue'
 
 // Props
@@ -86,10 +85,6 @@ const book_obj_list = {
     <!-- TODO pass props to these child components from retrieved database results -->
     <PhotoGallery :book_list="book_obj_list.books"></PhotoGallery>
   </div>
-
-  <!-- <div class="book_list">
-    <BookList />
-  </div> -->
 </template>
 
 <style scoped>
