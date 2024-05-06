@@ -65,12 +65,15 @@ const loginStore = useLoginStore()
 //   ]
 // }
 let active_tab = 0
+
+
 // Methods
-// function getUserBooks(id = 0) {
-//   return 1
-// }
+// const is_logged_in = computed(() => {
+//   return loginStore.getUser
+// })
+
 const is_logged_in = computed(() => {
-  return loginStore.getUser
+  return true
 })
 
 function select_tab(num) {

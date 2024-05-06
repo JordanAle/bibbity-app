@@ -5,7 +5,7 @@ import router from '@/router'
 
 export const useLoginStore = defineStore('login', () => {
   const user = ref(null)
-  const getUser = computed(() => user)
+  const getUser = computed(() => user.value)
   const login = (userInfo) => {
     user.value = userInfo
   }

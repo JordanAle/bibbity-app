@@ -1,0 +1,5 @@
+{"name": "DEMO USER 0", "email":"emailz", "password": "", "is_author":false, "is_artist":false, "about": "", "created_at": 0, "visible": true, "profile_image": null, "images": [], "books": [] }
+{"name": "DEMO USER 1", "email":"emailone", "password": "", "is_author":false, "is_artist":false, "about": "", "created_at": 0, "visible": true, "profile_image": null, "images": [], "books": [] }
+{ "name": "DEMO USER 2", "email":"emailtwo", "password": "", "is_author":false, "is_artist":false, "about": "", "created_at": 0, "visible": true, "profile_image": null, "images": [], "books": [] }
+{ "name": "DEMO USER 3", "email":"emailthree", "password": "", "is_author":false, "is_artist":false, "about": "", "created_at": 0, "visible": true, "profile_image": null, "images": [], "books": [] }
+{ "name": "DEMO USER 4", "email":"emailfour", "password": "", "is_author":false, "is_artist":false, "about": "", "created_at": 0, "visible": true, "profile_image": null, "images": [], "books": [] }

@@ -24,7 +24,7 @@ const title_selected = computed(() => {
     <Section section_title="Printing Press">
       <template #section_content>
         <div class="section_content">
-          <p>The first step to publishing your magnum opis is selecting a book size</p>
+          <p>The first step to publishing your magnum opus is selecting a book size</p>
           <div class="book_carosel">
             <div class="center_div">
               <div id="s" class="book_div">
