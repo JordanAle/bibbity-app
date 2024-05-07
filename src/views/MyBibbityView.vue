@@ -1,7 +1,7 @@
 <script setup>
 import ProfileEdit from '../components/ProfileEdit.vue'
 import PhotoGallery from '../components/PhotoGallery.vue'
-import Login from '../components/Login.vue'
+import Login from '@/components/Login.vue'
 import { useLoginStore } from '../stores/loginStore.js'
 import { computed, defineProps } from 'vue'
 
@@ -65,7 +65,6 @@ const loginStore = useLoginStore()
 //   ]
 // }
 let active_tab = 0
-
 
 // Methods
 // const is_logged_in = computed(() => {
