@@ -157,8 +157,6 @@ function backgroundColor(){
 
 <template>
   <div class="container">
-    <input type="checkbox" v-model="checked">
-    <p v-if="checked">I'M HERE TO ANNOUNCE THAT THE CHECK IS CHECKED</p>
     <div v-if="is_logged_in == false" class="loggedout">
       <Login />
     </div>
