@@ -1,35 +1,49 @@
-import { ref, computed } from 'vue'
+import { ref, computed} from 'vue'
 import { defineStore } from 'pinia'
-import { googleSdkLoaded } from 'vue3-google-login'
 import router from '@/router'
+import axios from 'axios'
+
 
 export const useLoginStore = defineStore('login', () => {
+  // References
   const user = ref(null)
-  const getUser = computed(() => user.value)
-  const login = (userInfo) => {
-    user.value = userInfo
-  }
-  const logout = () => {
-    // TODO Handle any 3rd party sign out too
-    user.value = null
-    router.push('/')
-  }
-  // Google
-  const signInWithGoogle = () => {
-    googleSdkLoaded((google) => {
-      google.accounts.oauth2
-        .initCodeClient({
-          client_id: '804315369798-sr8lacf17ekt9mv02bbni0hrqb8mu9iq.apps.googleusercontent.com',
-          scope: 'email profile openid',
-          // redirect_uri: 'https://v8jsdts7-8080.use.devtunnels.ms', // may be trhown out by recieving server depending on its protocol
-          callback: async (response) => {
-            console.log(response)
-            if (response) login(response)
-          }
-        })
-        .requestCode()
-    })
+  const sessionToken = ref(null)
+  // Getters
+  ///tbd
+
+  // Actions
+  function setUser(new_user){
+    user.value = new_user
   }
 
-  return { user, getUser, login, logout, signInWithGoogle }
+  function setSessionToken(token){
+    sessionToken.value = token
+  }
+
+  function login(){
+    router.push('/my-bibbity')
+  }
+
+  function logout(){
+    setUser(null)
+    setSessionToken(null)
+    router.push('/')
+  }
+
+  async function refreshUser(username){
+    try {
+      if (user.value != null && sessionToken.value != null) {
+        const refreshResponse = await axios.get(`http://localhost:3000/users/username/${username}`, {
+          headers: {
+            authorization: JSON.stringify(sessionToken.value)
+          }
+        })
+        setUser(refreshResponse.data)
+      }
+    } catch (err) {
+      console.log('error in refresh user: ', err)
+    }
+  }
+
+  return { user, sessionToken, login, logout, setUser, setSessionToken, refreshUser}
 })

@@ -25,7 +25,7 @@ const close_menu = () => {
 }
 
 //Computed
-const is_logged_in = computed(() => loginStore.getUser)
+const is_logged_in = computed(() => loginStore.user)
 </script>
 
 <template>
@@ -46,8 +46,8 @@ const is_logged_in = computed(() => loginStore.getUser)
         <RouterLink to="/printing-press">Printing Press</RouterLink>
         <RouterLink to="/browse-artists">Browse Artists</RouterLink>
         <RouterLink to="/my-bibbity">My Bibbity</RouterLink>
-        <RouterLink v-if="is_logged_in === null" to="/my-bibbity">Log In</RouterLink>
-        <a v-else @click="logout">Log Out</a>
+        <RouterLink v-if="is_logged_in === null" to="/my-bibbity">Login</RouterLink>
+        <a v-else @click="logout">Logout</a>
       </nav>
     </div>
   </div>
@@ -109,7 +109,7 @@ nav a:first-of-type {
   /* -webkit-text-stroke-width: 0.1px;
         -webkit-text-stroke-color: black; */
 }
-@media screen and (max-width: 1235px) {
+@media screen and (max-width: 50px) {
   .navbar {
     font-size: 1em;
     display: block;

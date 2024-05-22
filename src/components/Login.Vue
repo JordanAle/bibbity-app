@@ -8,10 +8,61 @@ const props = defineProps({})
 // Store
 const loginStore = useLoginStore()
 // Data
-
+let loginError = false
 // Methods
-const google = () => {
-  loginStore.signInWithGoogle()
+const login = async () => {
+  try {
+    console.log('ran front end login')
+    //Get username and password from user input
+    const username = 'usernamez'
+    const password = 'passwordz'
+
+    // Create login token
+    const loginToken = {
+      // TODO change these to text input value references
+      "username": username,
+      "password": password,
+      "scopes": "login edit-user"
+    }
+    // TODO Encrypt token this with the server's public key probably
+
+    // Get session token from server
+    const sessionResponse = await axios.post('http://localhost:3000/auth/user', loginToken)
+    const sessionToken= sessionResponse.data
+    /**
+     * NOTE, THIS IS THE STRUCTURE OF THE TOKEN
+        payload: '',
+        alg: '',
+        enc: '',
+        subject_user: req.body.username,
+        subject_id: user._id,
+        issuer: '',
+        audience: '',
+        expiration: Date.now() + MS_UNTIL_EXPIRATION
+    **/
+
+    // Get user info, including session token in the request
+    const userResponse = await axios.get(`http://localhost:3000/users/username/${username}`, {
+      headers: {
+        authorization: JSON.stringify(sessionToken)
+      },
+      params: {
+        username: username
+      }
+    })
+    const userDetails = userResponse.data 
+    if (!userDetails) throw new Error ('User details could not be fetched')
+  
+    // Store token and user information
+    loginStore.setSessionToken(sessionToken)
+    loginStore.setUser(userDetails)
+    loginStore.login()
+  } catch (err) {
+    console.log('Error in login frontend: ', err)
+  }
+}
+const createAccount = async () => {
+  //
 }
 </script>
 
@@ -20,7 +71,10 @@ const google = () => {
     <div class="inner_container">
       <h1>Login to Bibbity Books</h1>
       <div class="text_container">
-        <input class="text_input" type="text" name="email" id="email" placeholder="email" />
+        <div v-if="loginError" id="loginError">
+          <span>There was an error with your email or password.</span>
+        </div>
+        <input class="text_input" type="text" name="username" id="username" placeholder="username" />
         <input
           class="text_input"
           type="text"
@@ -30,11 +84,8 @@ const google = () => {
         />
       </div>
       <div class="button_container">
-        <input type="button" value="Login" />
-        <input type="button" value="Forgot Password" />
-      </div>
-      <div class="google_login_container">
-        <div class="google_login" @click="google">Login with Google</div>
+        <input type="button" value="Login" @click="login"/>
+        <input type="button" value="Create Account" @click="createAccount" />
       </div>
     </div>
   </div>
@@ -101,5 +152,10 @@ const google = () => {
   box-shadow: 0px 0px 15px -8px #000000;
   background-color: rgb(35, 77, 200);
   transition: 0.1s;
+}
+#loginError {
+  display: flex;
+  color: red;
+  justify-content: center;
 }
 </style>

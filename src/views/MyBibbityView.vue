@@ -3,13 +3,11 @@ import ProfileEdit from '../components/ProfileEdit.vue'
 import PhotoGallery from '../components/PhotoGallery.vue'
 import Login from '@/components/Login.vue'
 import { useLoginStore } from '../stores/loginStore.js'
-import { computed, defineProps } from 'vue'
+import { computed, defineProps, toRaw, ref} from 'vue'
 
 // Props
 const props = defineProps({
-  user: {
-    type: Object
-  }
+  //
 })
 // Store
 const loginStore = useLoginStore()
@@ -67,12 +65,12 @@ const loginStore = useLoginStore()
 let active_tab = 0
 
 // Methods
-// const is_logged_in = computed(() => {
-//   return loginStore.getUser
-// })
 
+// Computed
 const is_logged_in = computed(() => {
-  return true
+  // return true
+  console.log('my bibbity user: ', toRaw(loginStore.user))
+  return Boolean(loginStore.user)
 })
 
 function select_tab(num) {
@@ -148,11 +146,20 @@ function select_tab(num) {
       return 1
   }
 }
+
+let checked = ref(true)
+
+function backgroundColor(){
+  if (checked) document.getElementsByName('body').styles.backgroundColor = "red"
+  else document.getElementsByName('body').styles.backgroundColor = "blue"
+}
 </script>
 
 <template>
   <div class="container">
-    <div v-if="is_logged_in == null" class="loggedout">
+    <input type="checkbox" v-model="checked">
+    <p v-if="checked">I'M HERE TO ANNOUNCE THAT THE CHECK IS CHECKED</p>
+    <div v-if="is_logged_in == false" class="loggedout">
       <Login />
     </div>
     <!-- TODO pass props to these child components from retrieved database results -->
@@ -162,22 +169,30 @@ function select_tab(num) {
           <li id="tab_head1" class="tab_header" @click="select_tab(1)">New Books</li>
           <li id="tab_head2" class="tab_header" @click="select_tab(2)">Books In Progress</li>
           <li id="tab_head3" class="tab_header" @click="select_tab(3)">Published Books</li>
-          <li id="tab_head4" class="tab_header" @click="select_tab(4)">Edit Profile</li>
+          <li id="tab_head4" class="tab_header" @click="select_tab(4)">My Profile</li>
         </div>
         <div class="tab_content_group"></div>
-        <div id="tab1" class="tab_content">New Books</div>
-        <div id="tab2" class="tab_content">Books In Progress</div>
-        <div id="tab3" class="tab_content">Published Books</div>
+        <div id="tab1" class="tab_content">
+          <h2>New Books</h2>
+          <div class="photo_gallery">
+            <PhotoGallery />
+          </div>
+        </div>
+        <div id="tab2" class="tab_content">
+          <h2>Books In Progress</h2>
+        </div>
+        <div id="tab3" class="tab_content">
+          <h2>Published Books</h2>
+        </div>
         <div id="tab4" class="tab_content">
+          <h2>My Profile</h2>
           <div>
             <ProfileEdit />
           </div>
         </div>
       </ul>
 
-      <div class="photo_gallery">
-        <PhotoGallery />
-      </div>
+      
     </div>
   </div>
 </template>
