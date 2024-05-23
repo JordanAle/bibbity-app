@@ -24,12 +24,12 @@ const book_obj_list = {
       author: 'Shep Albertson',
       author_id: 2
     },
-    {
-      id: 3,
-      title: 'One Day and Two Nights by Eugenia Nedlman.png',
-      author: 'Eugenia Nedlman',
-      author_id: 3
-    },
+    // {
+    //   id: 3,
+    //   title: 'One Day and Two Nights by Eugenia Nedlman.png',
+    //   author: 'Eugenia Nedlman',
+    //   author_id: 3
+    // },
     { id: 4, title: 'Patina. By Nancy Schmidt.png', author: 'Nancy Schmidt', author_id: 4 },
     {
       id: 5,
