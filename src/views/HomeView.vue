@@ -5,6 +5,9 @@ import Banner from '../components/Banner.vue'
 
 <template>
   <div class="container">
+    <div>
+      <Banner />
+    </div>
     <div class="side_bar">
       <RouterLink to="/printing-press">
         <button>
@@ -17,7 +20,6 @@ import Banner from '../components/Banner.vue'
         </button>
       </RouterLink>
     </div>
-    <Banner />
   </div>
 </template>
 
@@ -26,16 +28,12 @@ import Banner from '../components/Banner.vue'
   display: flex;
   justify-content: center;
   margin: auto;
-  /* flex-flow: row; */
+  flex-flow: column;
 }
 .side_bar {
   display: flex;
-  flex-direction: column;
-  /* width: 100%; */
-  align-self: center;
-  justify-items: right;
-  /* margin: auto; */
-  margin-left: 0 0 0 3em;
+  justify-content: center;
+  align-items: center;
 }
 button {
   background-color: transparent;
@@ -43,7 +41,7 @@ button {
   vertical-align: middle;
 
   background-color: #ffd04f;
-  margin: 0.5em 0 0 1em;
+  margin: 0.5em 1.5rem 0 1rem;
   padding: 0.5em;
   font-size: 1.5em;
   border-radius: 1em;

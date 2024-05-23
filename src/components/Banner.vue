@@ -13,10 +13,11 @@ your dreams."
 .banner {
   display: flex;
   justify-content: center;
-  max-width: 74%;
+  justify-items: center;
+  max-width: 100%;
 }
 .banner_img {
-  max-width: 85%;
+  max-width: 75%;
   object-fit: contain;
   box-shadow: 0px 0px 67px -45px #000000;
   border-radius: 0.5em;
