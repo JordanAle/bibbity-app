@@ -60,7 +60,7 @@ const is_logged_in = computed(() => loginStore.user)
 .navbar {
   /* background-color: #e7bf0f; */
   display: grid;
-  grid-template-columns: 2fr 8fr;
+  grid-template-columns: 1fr 9fr;
   margin: 0 0 1rem 0;
   border-bottom: 0.5px solid var(--color-border);
   background-color: white;
@@ -72,7 +72,7 @@ const is_logged_in = computed(() => loginStore.user)
   top: 0; /* top left corner should start at topmost spot */
   width: 100vw; /* take up the full browser width */
   z-index: 200; /* high z index so other content scrolls underneath */
-  height: 100px; /* define height for content */
+  height: auto; /* define height for content */
 }
 .nav_logo {
   font-size: 1.4em;
@@ -83,24 +83,28 @@ const is_logged_in = computed(() => loginStore.user)
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1em 0em 1em 0em;
+  padding: .1em 0em .1em 0em;
 
   font-size: 18px;
   font-weight: bold;
+
+  margin: 0 0 0 1rem;
   /* place-items: center; */
   /* flex-wrap: wrap; */
 }
 nav a.router-link-exact-active:hover {
   background-color: transparent;
 }
-nav a {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  /* color: rgb(62, 62, 62); */
-  border-left: 1px solid var(--color-border);
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
-nav a:first-of-type {
-  border: 0;
+nav a {
+  /* padding: auto; */
+  margin: auto;
+  text-align: center;
+  /* border-left: 1px solid var(--color-border); */
 }
 .logo_style {
   color: rgba(65, 105, 225, 1);
