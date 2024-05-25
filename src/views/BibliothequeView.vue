@@ -1,6 +1,7 @@
 <script setup>
 import SearchBar from '../components/SearchBar.vue'
 import PhotoGallery from '../components/PhotoGallery.vue'
+import Section from '../components/PhotoGallery.vue'
 
 // Props
 const props = defineProps({
@@ -66,7 +67,7 @@ const book_obj_list = {
 
 <template>
   <div class="search_header">
-    <h1>Book Library</h1>
+    <h1>Library</h1>
     <div class="filter_options">
       <SearchBar placeholder="Search...">
         <template #filter_options>
@@ -101,6 +102,7 @@ const book_obj_list = {
 h1 {
   font-size: 8rem;
   color: rgba(65, 105, 225, 1);
+  justify-self: center;
 }
 /* Fiter styles -start- */
 .filter_options {
@@ -124,7 +126,9 @@ li:hover {
   color: white;
 }
 .books {
-  margin-left: 8em;
+  /* display:flex; */
+  margin-left: 6em;
+  justify-content: center;
 }
 /* Fiter styles -end- */
 </style>

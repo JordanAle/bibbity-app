@@ -34,12 +34,14 @@ const strToURL = (str) => {
 
 <style scoped>
 .card_main {
-  margin: 1em 0 1em 0;
-  align-content: center;
+  max-width: 100%;
+  /* justify-content: center; */
+ 
 }
 ul {
   display: grid;
-  flex-flow: row wrap-reverse;
+  max-width:100%;
+
   grid-template-columns: 20% 20% 20% 20%;
 
   /* Undo Defaults */
@@ -47,7 +49,7 @@ ul {
   list-style: none;
 }
 .card_main_photo {
-  margin: 0.2em;
+  /* margin: 0.2em; */
   max-width: 500px;
   max-height: 500px;
 }

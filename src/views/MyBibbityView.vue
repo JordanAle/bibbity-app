@@ -13,55 +13,49 @@ const props = defineProps({
 const loginStore = useLoginStore()
 
 // Data
-// const book_obj_list = {
-//   books: [
-//     {
-//       id: 0,
-//       title: 'A Little Direction by Mallory N_Jibwe.png',
-//       author: 'Mallory N_Jibwe',
-//       author_id: 0
-//     },
-//     { id: 1, title: 'Cutting Glass By Sam Meyers.png', author: 'Sam Meyers', author_id: 1 },
-//     {
-//       id: 2,
-//       title: 'Dying Alone, Together by Shep Albertson.png',
-//       author: 'Shep Albertson',
-//       author_id: 2
-//     },
-//     {
-//       id: 3,
-//       title: 'One Day and Two Nights by Eugenia Nedlman.png',
-//       author: 'Eugenia Nedlman',
-//       author_id: 3
-//     },
-//     { id: 4, title: 'Patina. By Nancy Schmidt.png', author: 'Nancy Schmidt', author_id: 4 },
-//     {
-//       id: 5,
-//       title: 'Pushing 90 With the Windows Down, by Diangelo Jailors.png',
-//       author: 'Diangelo Jailors',
-//       author_id: 5
-//     },
-//     {
-//       id: 6,
-//       title: 'Refusal of the Call by Lynn Trestle.png',
-//       author: 'Lynn Trestle',
-//       author_id: 6
-//     },
-//     {
-//       id: 7,
-//       title: 'The Infinite Pleasures of Contemplation by Samantha Ruppert.png',
-//       author: 'Samantha Ruppert',
-//       author_id: 7
-//     },
-//     {
-//       id: 8,
-//       title: 'The Wild Geese by Adronius Finch.png',
-//       author: 'Adronius Finch',
-//       author_id: 8
-//     },
-//     { id: 9, title: 'Why not Now by Eddard Landry.png', author: 'Eddard Landry', author_id: 9 }
-//   ]
-// }
+const book_obj_list = {
+  books: [
+    {
+      id: 0,
+      title: 'A Little Direction by Mallory N_Jibwe.png',
+      author: 'Mallory N Jibwe',
+      author_id: 0
+    },
+    { id: 1, title: 'Cutting Glass By Sam Meyers.png', author: 'Sam Meyers', author_id: 1 },
+    {
+      id: 2,
+      title: 'Dying Alone, Together by Shep Albertson.png',
+      author: 'Shep Albertson',
+      author_id: 2
+    },
+    { id: 4, title: 'Patina. By Nancy Schmidt.png', author: 'Nancy Schmidt', author_id: 4 },
+    {
+      id: 5,
+      title: 'Pushing 90 With the Windows Down, by Diangelo Jailors.png',
+      author: 'Diangelo Jailors',
+      author_id: 5
+    },
+    {
+      id: 6,
+      title: 'Refusal of the Call by Lynn Trestle.png',
+      author: 'Lynn Trestle',
+      author_id: 6
+    },
+    {
+      id: 7,
+      title: 'The Infinite Pleasures of Contemplation by Samantha Ruppert.png',
+      author: 'Samantha Ruppert',
+      author_id: 7
+    },
+    {
+      id: 8,
+      title: 'The Wild Geese by Adronius Finch.png',
+      author: 'Adronius Finch',
+      author_id: 8
+    },
+    { id: 9, title: 'Why not Now by Eddard Landry.png', author: 'Eddard Landry', author_id: 9 }
+  ]
+}
 let active_tab = 0
 
 // Methods
@@ -173,14 +167,20 @@ function backgroundColor(){
         <div id="tab1" class="tab_content">
           <h2>New Books</h2>
           <div class="photo_gallery">
-            <PhotoGallery />
+            <PhotoGallery :book_list="book_obj_list.books"/>
           </div>
         </div>
         <div id="tab2" class="tab_content">
           <h2>Books In Progress</h2>
+          <div class="photo_gallery">
+            <PhotoGallery :book_list="book_obj_list.books"/>
+          </div>
         </div>
         <div id="tab3" class="tab_content">
           <h2>Published Books</h2>
+          <div class="photo_gallery">
+            <PhotoGallery :book_list="book_obj_list.books"/>
+          </div>
         </div>
         <div id="tab4" class="tab_content">
           <h2>My Profile</h2>
@@ -229,5 +229,8 @@ function backgroundColor(){
 #tab2,
 #tab3 {
   display: none;
+}
+.photo_gallery {
+  margin: 0 3em 0 3em;
 }
 </style>

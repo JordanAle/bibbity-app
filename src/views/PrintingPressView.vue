@@ -31,22 +31,23 @@ const title_selected = computed(() => {
                 <img
                   src="../assets/Book Covers/Patina. By Nancy Schmidt.png"
                   @click="choose_size('Small')"
+                  class="single_row_column"
                 />
-                <span @click="choose_size('Small')">Small</span>
+                <span @click="choose_size('Small')">BITE SIZED BIBBITY ($150)</span>
               </div>
               <div id="m" class="book_div">
                 <img
                   src="../assets/Book Covers/Patina. By Nancy Schmidt.png"
                   @click="choose_size('Medium')"
                 />
-                <span @click="choose_size('Medium')">Medium</span>
+                <span @click="choose_size('Medium')">BIBBITY BOOK CLASSIC ($300)</span>
               </div>
               <div id="lg" class="book_div" @click="choose_size('Large')">
                 <img
                   src="../assets/Book Covers/Patina. By Nancy Schmidt.png"
                   @click="choose_size('Large')"
                 />
-                <span @click="choose_size('Large')">Large</span>
+                <span @click="choose_size('Large')">BIG OL’ BIBBITY BOOK ($500)</span>
               </div>
             </div>
           </div>
@@ -90,6 +91,7 @@ img {
   display: flex;
   justify-content: center;
   height: 530px;
+  max-width: 100%;
   background-color: #ffd500a4;
   padding: 0 2em 0 2em;
 
@@ -104,12 +106,13 @@ img {
 }
 .book_div {
   position: relative;
+  display: grid;
+  justify-items: center;
+
 }
-.book_div span {
-  position: absolute;
-  top: 5%;
-  left: 40%;
-  z-index: 0;
+.single_row_column {
+  grid-column: 1;
+  grid-row: 1;
 }
 .book_div span {
   position: absolute;
@@ -119,68 +122,39 @@ img {
   font-size: x-large;
   color: white;
 
-  padding: 1em;
+  align-self: center;
+  padding: .5em;
   border-radius: 2em;
   background-color: rgba(33, 33, 33, 0.056);
 }
-#s span {
-  /* -20h */
-  top: 30%;
-  left: 30%;
-}
-#m span {
-  /* -15h */
-  top: 35%;
-  left: 30%;
-}
-#lg span {
-  /* -13h */
-  top: 37%;
-  left: 35%;
-}
-/*  */
-#s:hover span {
-  /* -20h */
-  top: 30%;
-  left: 30%;
+.book_div:hover span {
   z-index: 2;
   background-color: rgba(33, 33, 33, 0.581);
   transition: 0.2s;
 }
-#m:hover span {
-  /* -15h */
-  top: 35%;
-  left: 30%;
-  z-index: 2;
-  background-color: rgba(33, 33, 33, 0.581);
-  transition: 0.2s;
-}
-#lg:hover span {
-  /* -13h */
-  top: 37%;
-  left: 35%;
-  z-index: 2;
-  background-color: rgba(33, 33, 33, 0.581);
-  transition: 0.2s;
-}
-/*  */
 #s img {
   max-height: 300px;
+  max-width: 100%;
 }
 #s:hover img {
   max-height: 310px;
+  max-width: 100%;
 }
 #m img {
   max-height: 400px;
+  max-width: 100%;
 }
 #m:hover img {
   max-height: 420px;
+  max-width: 100%;
 }
 #lg img {
   max-height: 500px;
+  max-width: 100%;
 }
 #lg:hover img {
   max-height: 520px;
+  max-width: 100%;
 }
 .enter_name {
   display: flex;

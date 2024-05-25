@@ -70,7 +70,7 @@ const is_logged_in = computed(() => loginStore.user)
                         coordinates */
   left: 0; /* top left corner should start at leftmost spot */
   top: 0; /* top left corner should start at topmost spot */
-  width: 100vw; /* take up the full browser width */
+  max-width: 100%; /* take up the full browser width */
   z-index: 200; /* high z index so other content scrolls underneath */
   height: auto; /* define height for content */
 }
@@ -97,14 +97,12 @@ nav a.router-link-exact-active:hover {
 }
 nav {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
 }
 nav a {
-  /* padding: auto; */
-  margin: auto;
+  padding: 0.1rem 1rem;
+  margin-left: auto;
   text-align: center;
-  /* border-left: 1px solid var(--color-border); */
 }
 .logo_style {
   color: rgba(65, 105, 225, 1);

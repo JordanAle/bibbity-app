@@ -3,7 +3,7 @@ defineProps({
   section_title: {
     type: String,
     required: false,
-    default: 'Section Title'
+    default: ''
   }
 })
 </script>
@@ -35,6 +35,7 @@ section {
 .section_title {
   display: flex;
   justify-content: center;
+  /* max-width: 100%; */
   font-size: 8rem;
   color: rgba(65, 105, 225, 1);
   /* outline: 1px solid black; */
