@@ -18,14 +18,14 @@ const artists = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla egestas augue at imperdiet. Nunc facilisis sagittis est, ut porttitor risus pulvinar ultricies. Vivamus cursus odio odio, non dapibus mauris facilisis vitae. Morbi finibus ex lectus, ut vestibulum mi tempor nec.',
       image: { id: 0, uri: '../assets/smiling_sloth.png' },
       photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' },
-        { id: 2, uri: '../assets/smiling_sloth.png' },
-        { id: 3, uri: '../assets/smiling_sloth.png' },
-        { id: 4, uri: '../assets/smiling_sloth.png' },
-        { id: 5, uri: '../assets/smiling_sloth.png' },
-        { id: 6, uri: '../assets/smiling_sloth.png' },
-        { id: 7, uri: '../assets/smiling_sloth.png' }
+        { id: 0, uri: '../assets/image2.jpg' },
+        { id: 1, uri: '../assets/image4.jpg' },
+        { id: 2, uri: '../assets/image5.png' },
+        { id: 3, uri: '../assets/image10.jpg' },
+        { id: 4, uri: '../assets/image2.jpg' },
+        { id: 5, uri: '../assets/image4.jpg' },
+        { id: 6, uri: '../assets/image5.png' },
+        { id: 7, uri: '../assets/image10.jpg' }
         // { id: 8, uri: '../assets/smiling_sloth.png' },
         // { id: 9, uri: '../assets/smiling_sloth.png' }
       ],
@@ -36,7 +36,12 @@ const artists = {
       name: 'artist_one',
       about: 'about',
       image: { id: 0, uri: '../assets/smiling_sloth.png' },
-      photos: [{ id: 0, uri: '../assets/smiling_sloth.png' }],
+      photos: [
+        { id: 0, uri: '../assets/image2.jpg' },
+        { id: 1, uri: '../assets/image4.jpg' },
+        { id: 2, uri: '../assets/image5.png' },
+        { id: 3, uri: '../assets/image10.jpg' },
+      ],
       books: [0, 1, 2]
     },
     {
@@ -45,8 +50,8 @@ const artists = {
       about: 'about',
       image: { id: 0, uri: '../assets/smiling_sloth.png' },
       photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' }
+        { id: 0, uri: '../assets/image2.jpg' },
+        { id: 1, uri: '../assets/image4.jpg' },
       ],
       books: [2]
     },
@@ -56,8 +61,8 @@ const artists = {
       about: 'about',
       image: { id: 0, uri: '../assets/smiling_sloth.png' },
       photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' }
+        { id: 0, uri: '../assets/image2.jpg' },
+        { id: 1, uri: '../assets/image4.jpg' },
       ],
       books: [3]
     },
@@ -67,8 +72,8 @@ const artists = {
       about: 'about',
       image: { id: 0, uri: '../assets/smiling_sloth.png' },
       photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' }
+        { id: 0, uri: '../assets/image2.jpg' },
+        { id: 1, uri: '../assets/image4.jpg' },
       ],
       books: [4]
     },
@@ -78,8 +83,8 @@ const artists = {
       about: 'about',
       image: { id: 0, uri: '../assets/smiling_sloth.png' },
       photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' }
+        { id: 0, uri: '../assets/image2.jpg' },
+        { id: 1, uri: '../assets/image4.jpg' },
       ],
       books: [5]
     },
@@ -89,8 +94,8 @@ const artists = {
       about: 'about',
       image: { id: 0, uri: '../assets/smiling_sloth.png' },
       photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' }
+        { id: 0, uri: '../assets/image2.jpg' },
+        { id: 1, uri: '../assets/image4.jpg' },
       ],
       books: [6]
     },
@@ -100,8 +105,8 @@ const artists = {
       about: 'about',
       image: { id: 0, uri: '../assets/smiling_sloth.png' },
       photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' }
+        { id: 0, uri: '../assets/image2.jpg' },
+        { id: 1, uri: '../assets/image4.jpg' },
       ],
       books: [7, 8]
     },
@@ -111,8 +116,8 @@ const artists = {
       about: 'about',
       image: { id: 0, uri: '../assets/smiling_sloth.png' },
       photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' }
+        { id: 0, uri: '../assets/image2.jpg' },
+        { id: 1, uri: '../assets/image4.jpg' },
       ],
       books: [8]
     },
@@ -122,8 +127,8 @@ const artists = {
       about: 'about',
       image: { id: 0, uri: '../assets/smiling_sloth.png' },
       photos: [
-        { id: 0, uri: '../assets/smiling_sloth.png' },
-        { id: 1, uri: '../assets/smiling_sloth.png' }
+        { id: 0, uri: '../assets/image2.jpg' },
+        { id: 1, uri: '../assets/image4.jpg' },
       ],
       books: [9]
     }

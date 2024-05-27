@@ -53,21 +53,13 @@ const strToURL = (str) => {
         </div>
         <!-- Main -->
         <div class="card_main">
-            <ul>
-                <li v-for="obj in props.photos" :key="obj.id">
-                    <img class="card_main_photo" :src="strToURL(obj.uri)"></img>
-                </li>
-            </ul>
+            <img class="card_main_photo" v-for="obj in props.photos" :key="obj.id" :src="strToURL(obj.uri)"/>
         </div>
     </div>
     <div v-else class="card_container">
         <!-- Main -->
         <div class="card_main">
-            <ul>
-                <li v-for="obj in props.photos" :key="obj.id">
-                    <img class="card_main_photo" :src="strToURL(obj.uri)"></img>
-                </li>
-            </ul>
+            <img class="card_main_photo" v-for="obj in props.photos" :key="obj.id" :src="strToURL(obj.uri)"/>
         </div>
         <!-- Aux -->
         <div class="card_auxiliary">
@@ -131,47 +123,24 @@ const strToURL = (str) => {
     /* line-height: 1.5rem; */
 }
 .card_main{
+    display: flex;
+    flex-flow: row wrap;
     margin: 1em 0 1em 0;
     align-content: center;
-    /* position: relative; */
-}
-ul {
-    display: grid;
-    flex-flow: row wrap-reverse;
-    grid-template-columns: 20% 20% 20% 20%;
-
-    /* position:relative; */
     /* Undo Defaults */
     padding: 0;
     list-style: none;
 }
 .card_main_photo {
     margin: .2em;
-    max-width: 150px;
-    max-height: 150px;
-    margin-right: 100em;
-    /* z-index: 1; */
-    /* transition: ease-out .2s; */
+    max-width: 250px;
+    max-height: 250px;
 }
-/* .card_main_photo img:hover:after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    top: 0px; left:0px;
-
-    position: fixed;
-    z-index: 10;
-    box-shadow: 0px 0px 67px -45px #000000;
-    transition: ease-out .2s;
+/* .card_main_photo:hover {
+    width: 300px;
+    height: 300px;
+    transition: ease-in .2s;
+    display:relative;
+    box-shadow: 0px 0px 300px -5px #000000;
 } */
-.card_main_photo:hover {
-    max-width: 300px;
-    max-height: 300px;
-    position: absolute;
-    /* top: 0px; left:0px; */
-
-    /* z-index: 100; */
-    box-shadow: 0px 0px 67px -45px #000000;
-    transition: ease-out .2s;
-}
 </style>

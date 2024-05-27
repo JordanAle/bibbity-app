@@ -36,10 +36,10 @@ import Banner from '../components/Banner.vue'
   align-items: center;
 }
 button {
-  background-color: transparent;
+  /* background-color: transparent; */
   border: none;
   vertical-align: middle;
-
+  color: rgb(26, 26, 26);
   background-color: #ffd04f;
   /* margin: 0.5em 1.5rem 0 1rem; */
   padding: 0.5em;
