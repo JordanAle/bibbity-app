@@ -1,13 +1,12 @@
 <script setup>
-import { ref, computed, toRaw} from 'vue'
-import { useLoginStore } from '@/stores/loginStore';
+import { ref, computed, toRaw } from 'vue'
+import { useLoginStore } from '@/stores/loginStore'
 import axios from 'axios'
 
 //// Store
 const loginStore = useLoginStore()
 
-const props = defineProps({
-})
+const props = defineProps({})
 
 //// Data
 // form behavior vars
@@ -19,7 +18,7 @@ const originalUser = loginStore.user
 //set up checkboxes
 let is_author = ref(loginStore.user.is_author)
 let is_artist = ref(loginStore.user.is_artist)
-let {username, name, email, about} = loginStore.user
+let { username, name, email, about } = loginStore.user
 
 // Methods
 function startEdit() {
@@ -28,8 +27,10 @@ function startEdit() {
 
 function revert_edits() {
   // user = loginStore.user
-  ({username, name, email, about} = loginStore.user)
-  [is_author.value , is_artist.value] = [loginStore.user.is_author, loginStore.user.is_artist]
+  ;({ username, name, email, about } = loginStore.user)[(is_author.value, is_artist.value)] = [
+    loginStore.user.is_author,
+    loginStore.user.is_artist
+  ]
   console.log('edits reverted: ', toRaw(originalUser))
   is_edit_mode.value = false
 }
@@ -40,16 +41,18 @@ function submit() {
   // TODO add a buffer screen
 
   // save user updates to mongo
-  const userResponse = async () => await axios.put(`localhost:3000/users/${username}`, {
-    headers: {
-      authorization: JSON.stringify(loginStore.sessionToken)
-    },
-    body: {username, name, email, about, is_author, is_artist}
-  })
+  const userResponse = async () =>
+    await axios.put(`localhost:3000/users/${username}`, {
+      headers: {
+        authorization: JSON.stringify(loginStore.sessionToken)
+      },
+      body: { username, name, email, about, is_author, is_artist }
+    })
 
-  // sync local data with server 
-  loginStore.refreshUser(username)
-  ({username, name, email, about, is_author, is_artist} = loginStore.user) // reset local
+  // sync local data with server
+  loginStore.refreshUser(username)(
+    ({ username, name, email, about, is_author, is_artist } = loginStore.user)
+  ) // reset local
 
   // close edit mode
   is_edit_mode.value = false
@@ -57,7 +60,6 @@ function submit() {
   // TODO resume on callback from server
 }
 // Computed
-
 </script>
 
 <template>
@@ -69,7 +71,7 @@ function submit() {
     <div class="form_panel">
       <!-- Text Info -->
       <div class="text_info">
-        <input v-if="is_edit_mode" type="text" :value="name" />
+        <input v-if="is_edit_mode" type="text" :value="name" placeholder="Name" />
         <h2 v-else class="name">{{ name }}</h2>
         <p class="username">{{ username }}</p>
 
@@ -77,6 +79,7 @@ function submit() {
           v-if="is_edit_mode"
           id="textarea"
           :value="about"
+          placeholder="About Me"
           cols="50"
           rows="10"
         ></textarea>

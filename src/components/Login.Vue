@@ -14,21 +14,21 @@ const login = async () => {
   try {
     console.log('ran front end login')
     //Get username and password from user input
-    const username = 'usernamez'
-    const password = 'passwordz'
+    const username = document.getElementById('username').value
+    const password = document.getElementById('password').value
 
     // Create login token
     const loginToken = {
       // TODO change these to text input value references
-      "username": username,
-      "password": password,
-      "scopes": "login edit-user"
+      username: username,
+      password: password,
+      scopes: 'login edit-user'
     }
     // TODO Encrypt token this with the server's public key probably
 
     // Get session token from server
     const sessionResponse = await axios.post('http://localhost:3000/auth/user', loginToken)
-    const sessionToken= sessionResponse.data
+    const sessionToken = sessionResponse.data
     /**
      * NOTE, THIS IS THE STRUCTURE OF THE TOKEN
         payload: '',
@@ -50,9 +50,9 @@ const login = async () => {
         username: username
       }
     })
-    const userDetails = userResponse.data 
-    if (!userDetails) throw new Error ('User details could not be fetched')
-  
+    const userDetails = userResponse.data
+    if (!userDetails) throw new Error('User details could not be fetched')
+
     // Store token and user information
     loginStore.setSessionToken(sessionToken)
     loginStore.setUser(userDetails)
@@ -61,8 +61,8 @@ const login = async () => {
     console.log('Error in login frontend: ', err)
   }
 }
-const createAccount = async () => {
-  //
+const createAccount = () => {
+  loginStore.createAccount()
 }
 </script>
 
@@ -74,7 +74,13 @@ const createAccount = async () => {
         <div v-if="loginError" id="loginError">
           <span>There was an error with your email or password.</span>
         </div>
-        <input class="text_input" type="text" name="username" id="username" placeholder="username" />
+        <input
+          class="text_input"
+          type="text"
+          name="username"
+          id="username"
+          placeholder="username"
+        />
         <input
           class="text_input"
           type="text"
@@ -84,7 +90,7 @@ const createAccount = async () => {
         />
       </div>
       <div class="button_container">
-        <input type="button" value="Login" @click="login"/>
+        <input type="button" value="Login" @click="login" />
         <input type="button" value="Create Account" @click="createAccount" />
       </div>
     </div>

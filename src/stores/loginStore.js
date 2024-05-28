@@ -1,8 +1,7 @@
-import { ref, computed} from 'vue'
+import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import router from '@/router'
 import axios from 'axios'
-
 
 export const useLoginStore = defineStore('login', () => {
   // References
@@ -12,32 +11,39 @@ export const useLoginStore = defineStore('login', () => {
   ///tbd
 
   // Actions
-  function setUser(new_user){
+  function setUser(new_user) {
     user.value = new_user
   }
 
-  function setSessionToken(token){
+  function setSessionToken(token) {
     sessionToken.value = token
   }
 
-  function login(){
+  function createAccount() {
+    router.push('/create-account')
+  }
+
+  function login() {
     router.push('/my-bibbity')
   }
 
-  function logout(){
+  function logout() {
     setUser(null)
     setSessionToken(null)
     router.push('/')
   }
 
-  async function refreshUser(username){
+  async function refreshUser(username) {
     try {
       if (user.value != null && sessionToken.value != null) {
-        const refreshResponse = await axios.get(`http://localhost:3000/users/username/${username}`, {
-          headers: {
-            authorization: JSON.stringify(sessionToken.value)
+        const refreshResponse = await axios.get(
+          `http://localhost:3000/users/username/${username}`,
+          {
+            headers: {
+              authorization: JSON.stringify(sessionToken.value)
+            }
           }
-        })
+        )
         setUser(refreshResponse.data)
       }
     } catch (err) {
@@ -45,5 +51,5 @@ export const useLoginStore = defineStore('login', () => {
     }
   }
 
-  return { user, sessionToken, login, logout, setUser, setSessionToken, refreshUser}
+  return { user, sessionToken, createAccount, login, logout, setUser, setSessionToken, refreshUser }
 })

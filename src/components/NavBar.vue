@@ -83,7 +83,7 @@ const is_logged_in = computed(() => loginStore.user)
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: .1em 0em .1em 0em;
+  padding: 0.1em 0em 0.1em 0em;
 
   font-size: 18px;
   font-weight: bold;
