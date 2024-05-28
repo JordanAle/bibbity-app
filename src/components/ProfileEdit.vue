@@ -36,23 +36,27 @@ function revert_edits() {
 }
 
 function submit() {
-  // TODO: Emit a change event to parent component to refresh props and send to database
+  // TODO: Emit a change event to sync local user obj with DB user obj? Otherwise edits to user in different tab
 
-  // TODO add a buffer screen
+  // TODO add a load screen
 
   // save user updates to mongo
   const userResponse = async () =>
-    await axios.put(`localhost:3000/users/${username}`, {
-      headers: {
-        authorization: JSON.stringify(loginStore.sessionToken)
-      },
-      body: { username, name, email, about, is_author, is_artist }
-    })
+    await axios
+      .put(`localhost:3000/users/username/${username}`, {
+        headers: {
+          authorization: JSON.stringify(loginStore.sessionToken)
+        },
+        body: { username, name, email, about, is_author, is_artist }
+      })
+      .catch((err) => {
+        console.log(err.response.data.message)
+      })
 
   // sync local data with server
   loginStore.refreshUser(username)(
     ({ username, name, email, about, is_author, is_artist } = loginStore.user)
-  ) // reset local
+  )
 
   // close edit mode
   is_edit_mode.value = false

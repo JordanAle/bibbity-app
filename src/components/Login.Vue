@@ -42,14 +42,19 @@ const login = async () => {
     **/
 
     // Get user info, including session token in the request
-    const userResponse = await axios.get(`http://localhost:3000/users/username/${username}`, {
-      headers: {
-        authorization: JSON.stringify(sessionToken)
-      },
-      params: {
-        username: username
-      }
-    })
+    const userResponse = await axios
+      .get(`http://localhost:3000/users/username/${username}`, {
+        headers: {
+          authorization: JSON.stringify(sessionToken)
+        },
+        params: {
+          username: username
+        }
+      })
+      .catch((err) => {
+        alert(err.response.data.message)
+      })
+
     const userDetails = userResponse.data
     if (!userDetails) throw new Error('User details could not be fetched')
 
@@ -58,7 +63,8 @@ const login = async () => {
     loginStore.setUser(userDetails)
     loginStore.login()
   } catch (err) {
-    console.log('Error in login frontend: ', err)
+    console.log('Error in login frontend: ', err.response.data.error)
+    alert(err.response.data.error)
   }
 }
 const createAccount = () => {
