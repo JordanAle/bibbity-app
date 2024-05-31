@@ -18,7 +18,10 @@ const originalUser = loginStore.user
 //set up checkboxes
 let is_author = ref(loginStore.user.is_author)
 let is_artist = ref(loginStore.user.is_artist)
-let { username, name, email, about } = loginStore.user
+let username = ref(loginStore.user.username)
+var name = ref(loginStore.user.name)
+let email = ref(loginStore.user.email)
+let about = ref(loginStore.user.about)
 
 // Methods
 function startEdit() {
@@ -26,42 +29,56 @@ function startEdit() {
 }
 
 function revert_edits() {
-  // user = loginStore.user
-  ;({ username, name, email, about } = loginStore.user)[(is_author.value, is_artist.value)] = [
-    loginStore.user.is_author,
-    loginStore.user.is_artist
-  ]
+  ;({ username, name, email, about } = loginStore.user)
+  is_author.value = loginStore.user.is_author
+  is_artist.value = loginStore.user.is_artist
   console.log('edits reverted: ', toRaw(originalUser))
   is_edit_mode.value = false
 }
 
-function submit() {
+async function submit() {
   // TODO: Emit a change event to sync local user obj with DB user obj? Otherwise edits to user in different tab
-
   // TODO add a load screen
+  console.log('trying to submit')
+  try {
+    // sync local data with server
+    let updateObj = {}
+    try {
+      updateObj.username = username.value
+    } catch (err) {
+      try {
+        updateObj.name = name.value
+      } catch (err) {
+        try {
+          updateObj.email = email.value
+        } catch (err) {
+          try {
+            updateObj.about = about.value
+          } catch (err) {
+            try {
+              updateObj.is_author = is_author.value
+            } catch (err) {
+              try {
+                updateObj.is_artist = is_artist.value
+              } catch (err) {
+                console.log('error getting a value from store: ' + err)
+              }
+            }
+          }
+        }
+      }
+    }
 
-  // save user updates to mongo
-  const userResponse = async () =>
-    await axios
-      .put(`localhost:3000/users/username/${username}`, {
-        headers: {
-          authorization: JSON.stringify(loginStore.sessionToken)
-        },
-        body: { username, name, email, about, is_author, is_artist }
-      })
-      .catch((err) => {
-        console.log(err.response.data.message)
-      })
+    await loginStore.updateUser(updateObj)
 
-  // sync local data with server
-  loginStore.refreshUser(username)(
-    ({ username, name, email, about, is_author, is_artist } = loginStore.user)
-  )
+    // // close edit mode
+    is_edit_mode.value = false
 
-  // close edit mode
-  is_edit_mode.value = false
-
-  // TODO resume on callback from server
+    // TODO resume on callback from server
+  } catch (err) {
+    console.log(err)
+    alert("Couldn't save: " + err)
+  }
 }
 // Computed
 </script>
@@ -75,14 +92,14 @@ function submit() {
     <div class="form_panel">
       <!-- Text Info -->
       <div class="text_info">
-        <input v-if="is_edit_mode" type="text" :value="name" placeholder="Name" />
+        <input v-if="is_edit_mode" type="text" v-model="name" placeholder="Name" />
         <h2 v-else class="name">{{ name }}</h2>
         <p class="username">{{ username }}</p>
 
         <textarea
           v-if="is_edit_mode"
           id="textarea"
-          :value="about"
+          v-model="about"
           placeholder="About Me"
           cols="50"
           rows="10"
